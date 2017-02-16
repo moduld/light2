@@ -17,14 +17,20 @@
                 <input type="checkbox" id="by_labeles" class="toggle_input" >
                 <label for="by_labeles" class="filter_name">По ярлыкам</label>
                 <div class="drop_body">
-
+                    <div class="check_string" ng-repeat="label in $ctrl.allLabels track by $index">
+                        <input type="checkbox" id="label_{{$index}}" class="string_toggle">
+                        <label for="label_{{$index}}" class="string">{{label}}</label>
+                    </div>
                 </div>
             </div>
             <div class="drop_container icon-down">
                 <input type="checkbox" id="by_color" class="toggle_input" >
                 <label for="by_color" class="filter_name">По цвету</label>
                 <div class="drop_body">
-
+                    <div class="check_string" ng-repeat="color in $ctrl.allColors track by $index">
+                        <input type="checkbox" id="color_{{$index}}" class="string_toggle">
+                        <label for="color_{{$index}}" class="string">{{color}}</label>
+                    </div>
                 </div>
             </div>
         </div>

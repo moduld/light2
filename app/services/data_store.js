@@ -8,11 +8,11 @@ angular.module('app')
             categories: [
                 {
                     category_name: 'first_category',
-                    subcategory: ['sub_category_1', 'sub_category_2' ]
+                    subcategory: ['sub_category_1', 'sub_category_2', 'add_1' ]
                 },
                 {
                     category_name: 'seconde_category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4']
+                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_1']
                 }
             ],
             labels: ['first label', 'seconde label', 'third label'],
@@ -24,7 +24,7 @@ angular.module('app')
             categories: [
                 {
                     category_name: 'first_category',
-                    subcategory: ['sub_category_1', 'sub_category_2' ]
+                    subcategory: ['sub_category_1', 'sub_category_2', 'add_2' ]
                 },
                 {
                     category_name: 'seconde_category',
@@ -40,18 +40,21 @@ angular.module('app')
             categories: [
                 {
                     category_name: 'first_category',
-                    subcategory: ['sub_category_1', 'sub_category_2' ]
+                    subcategory: ['sub_category_1', 'sub_category_2', 'add_6' ]
                 },
                 {
                     category_name: 'seconde_category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4']
+                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_5']
                 }
             ],
             labels: ['first label', 'seconde label', 'third label', 'first label', 'seconde label'],
             background: 'brown'
         }
     ];
+
+    this.colors = ['default', 'red', 'blue', 'green', 'yellow', 'violet', 'brown'];
     return {
-        allTabs: this.tabs
+        allTabs: this.tabs,
+        allColors: this.colors
     }
 });
