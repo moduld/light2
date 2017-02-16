@@ -1,0 +1,73 @@
+
+.tab_body{
+  width: 100%;
+  max-width: 29em;
+  padding: 0.5em;
+  border: 1px solid $default;
+  margin: 1em;
+  .title{
+    padding: 0.8em;
+    text-align: center;
+    background: white;
+    border-radius: 0.2em;
+    width: 100%;
+  }
+  .text{
+    margin-top: 0.5em;
+    background: white;
+    border-radius: 0.2em;
+    padding: 0.5em;
+  }
+  .tags_wrapp{
+    @extend .flex_default;
+    margin-top: 1em;
+  }
+  .category_wrapp,
+  .labels_wrapp{
+    width: 50%;
+    @extend .flex_column;
+    background: white;
+    padding: 0.5em;
+    border-radius: 0.2em;
+  }
+  .category_wrapp{
+    margin-right: 0.5em;
+  }
+  .labels_wrapp{
+    margin-left: 0.5em;
+  }
+
+  .main_tag{
+    margin-top: 1em;
+
+    &:first-child{
+      margin-top: 0;
+    }
+
+  }
+  .tag_name{
+    @extend .flex_line;
+    &:before{
+      color: $blue;
+      display: block;
+      margin-right: 0.5em;
+    }
+  }
+  .sub_tag{
+    @extend .flex_line;
+    margin-left: 1.5em;
+    font-size: 0.8em;
+    &:before{
+      font-size: 0.5em;
+      display: block;
+      margin-right: 1em;
+      color: $blue;
+    }
+  }
+
+
+
+
+
+
+}

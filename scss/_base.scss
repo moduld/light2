@@ -1,0 +1,140 @@
+.flex_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex_column{
+  display: flex;
+  flex-direction: column;
+}
+.flex_between{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex_default{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+}
+.flex_line{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-break: break-all;
+}
+html{
+  height: 100%;
+}
+body{
+  min-height: 100%;
+  @extend .flex_column;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+.main_wrapper{
+  width: 100%;
+  max-width: 90em;
+  margin: 0 auto;
+  @extend .flex_between;
+}
+.full_height{
+  flex: 1;
+  @extend .flex_column;
+}
+details,
+new-notice,
+main-view{
+  @extend .full_height;
+}
+
+.drop_container{
+  position: relative;
+  &:before{
+    color: $blue;
+  }
+}
+.drop_body{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 10em;
+  overflow-y: auto;
+  padding: 0.5em;
+  background: white;
+  display: none;
+}
+.toggle_input{
+  display: none;
+  &:checked ~ .drop_body{
+    display: block;
+  }
+}
+
+
+.filter_name{
+  font-size: 1.2em;
+  padding: 0.8em 1.5em 0.8em 0.5em;
+  display: inline-block;
+}
+
+
+
+.hover_button{
+  background: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  cursor: pointer;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    transition: 0.5s;
+    z-index: 0;
+  }
+  &:hover{
+    color: white;
+  }
+  &:hover:after{
+    box-shadow: 0 0 1em 10em rgba(98, 138, 204, 0.85);
+  }
+  .text{
+    transition: 0.5s;
+    z-index: 1;
+  }
+  &:hover > .text{
+    color: white;
+  }
+}
+
+.default{
+  background: $default;
+}
+.red{
+  background: $red;
+}
+.blue{
+  background: $blue;
+}
+.green{
+  background: $green;
+}
+.yellow{
+  background: $yellow;
+}
+.violet{
+  background: $violet;
+}
+.brown{
+  background: $brown;
+}
