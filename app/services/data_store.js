@@ -15,7 +15,7 @@ angular.module('app')
                     subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_1']
                 }
             ],
-            labels: ['first label', 'seconde label', 'third label'],
+            labels: ['first label'],
             background: 'default'
         },
         {
@@ -31,7 +31,7 @@ angular.module('app')
                     subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4']
                 }
             ],
-            labels: ['first label', 'seconde label', 'third label', 'first label', 'seconde label'],
+            labels: ['first label', 'seconde label', 'third label'],
             background: 'red'
         },
         {
@@ -39,7 +39,7 @@ angular.module('app')
             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis, illum mollitia officia quasi quia',
             categories: [
                 {
-                    category_name: 'first_category',
+                    category_name: 'third category',
                     subcategory: ['sub_category_1', 'sub_category_2', 'add_6' ]
                 },
                 {
@@ -47,14 +47,34 @@ angular.module('app')
                     subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_5']
                 }
             ],
-            labels: ['first label', 'seconde label', 'third label', 'first label', 'seconde label'],
+            labels: ['first label', 'seconde label'],
             background: 'brown'
         }
     ];
 
     this.colors = ['default', 'red', 'blue', 'green', 'yellow', 'violet', 'brown'];
+
+    this.categories = [
+        {
+            category_name: 'first category',
+            subcategory: ['sub_category_1', 'sub_category_2', 'add_6', 'add_2',  'add_1']
+        },
+        {
+            category_name: 'seconde category',
+            subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4',  'add_5', 'add_1']
+        },
+        {
+            category_name: 'third category',
+            subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_6']
+        }
+    ];
+
+    this.labels = ['first label', 'seconde label', 'third label']
+
     return {
         allTabs: this.tabs,
-        allColors: this.colors
+        allColors: this.colors,
+        allCategory: this.categories,
+        allLabels: this.labels
     }
 });

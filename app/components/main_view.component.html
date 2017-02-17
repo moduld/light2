@@ -7,38 +7,51 @@
             <span class="title">Фильтровать:</span>
 
             <div class="drop_container icon-down">
-                <input type="checkbox" id="by_categiry" class="toggle_input" >
+                <input type="checkbox" id="by_categiry" class="toggle_input">
                 <label for="by_categiry" class="filter_name">По категориям</label>
                 <div class="drop_body">
 
-                </div>
-            </div>
-            <div class="drop_container icon-down">
-                <input type="checkbox" id="by_labeles" class="toggle_input" >
-                <label for="by_labeles" class="filter_name">По ярлыкам</label>
-                <div class="drop_body">
-                    <div class="check_string" ng-repeat="label in $ctrl.allLabels track by $index">
-                        <input type="checkbox" id="label_{{$index}}" class="string_toggle">
-                        <label for="label_{{$index}}" class="string">{{label}}</label>
+                    <div class="check_string" ng-repeat="category in $ctrl.allCategories track by $index">
+                        <input type="checkbox" id="category_{{$index}}" class="string_toggle">
+                        <label for="category_{{$index}}" class="string">{{category.category_name}}</label>
+                        <div class="subcategories">
+                            <div class="check_string" ng-repeat="subcategory in category.subcategory track by $index">
+                                <input type="checkbox" id="{{category.category_name}}_subcategory_{{$index}}"
+                                       class="string_toggle">
+                                <label for="{{category.category_name}}_subcategory_{{$index}}" class="string">{{subcategory}}</label>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <div class="drop_container icon-down">
-                <input type="checkbox" id="by_color" class="toggle_input" >
-                <label for="by_color" class="filter_name">По цвету</label>
-                <div class="drop_body">
-                    <div class="check_string" ng-repeat="color in $ctrl.allColors track by $index">
-                        <input type="checkbox" id="color_{{$index}}" class="string_toggle">
-                        <label for="color_{{$index}}" class="string">{{color}}</label>
+                <div class="drop_container icon-down">
+                    <input type="checkbox" id="by_labeles" class="toggle_input">
+                    <label for="by_labeles" class="filter_name">По ярлыкам</label>
+                    <div class="drop_body">
+                        <div class="check_string" ng-repeat="label in $ctrl.allLabels track by $index">
+                            <input type="checkbox" id="label_{{$index}}" class="string_toggle">
+                            <label for="label_{{$index}}" class="string">{{label}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="drop_container icon-down">
+                    <input type="checkbox" id="by_color" class="toggle_input">
+                    <label for="by_color" class="filter_name">По цвету</label>
+                    <div class="drop_body">
+                        <div class="check_string" ng-repeat="color in $ctrl.allColors track by $index">
+                            <input type="checkbox" id="color_{{$index}}" class="string_toggle">
+                            <label for="color_{{$index}}" class="string">{{color}}</label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </nav>
 
 <div class="main_wrapper full_height flex_default main_view">
-    <div class="tab_body" ng-repeat="tab in $ctrl.tabs track by $index" ng-class="tab.background" ui-sref="details({id: $index})">
+    <div class="tab_body" ng-repeat="tab in $ctrl.tabs track by $index" ng-class="tab.background"
+         ui-sref="details({id: $index})">
         <h2 class="title" ng-bind="tab.title"></h2>
         <p class="text" ng-bind="tab.text"></p>
         <div class="tags_wrapp">

@@ -12,6 +12,11 @@
   align-items: center;
   justify-content: space-between;
 }
+.flex_around{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 .flex_default{
   display: flex;
   justify-content: flex-start;
@@ -137,4 +142,11 @@ main-view{
 }
 .brown{
   background: $brown;
+}
+.buttons{
+  @extend .flex_around;
+  margin-top: auto;
+  .button{
+    padding: 0.8em 1.5em;
+  }
 }

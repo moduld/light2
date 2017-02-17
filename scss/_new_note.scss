@@ -1,0 +1,69 @@
+.new_notice_window{
+  .input_field_wrapp{
+    @extend .flex_default;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $default;
+  }
+  .input_field{
+    padding: 0.8em 1em;
+    flex: 1;
+  }
+  .button_add{
+    padding: 0.8em;
+    cursor: pointer;
+    &:hover{
+      color: $blue;
+    }
+  }
+  .check_string{
+    margin-top: 0.8em;
+  }
+  .cat_name{
+    display: inline-block;
+    padding: 0.8em 0;
+  }
+  .subcat_open{
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .drop_body{
+    max-height: 30em;
+  }
+  .subcategories{
+    max-height: 10em;
+  }
+}
+
+.new_tab{
+  flex: 1;
+  @extend .flex_column;
+  width: 100%;
+  max-width: 62.5em;
+  margin: 2em auto 0;
+  padding: 2em;
+  .new_title{
+    width: 100%;
+    padding: 0.8em 1em;
+  }
+  .text_field{
+    display: block;
+    resize: none;
+    padding: 0.8em;
+    margin-top: 2em;
+    width: 100%;
+    min-height: 30em;
+  }
+  .settings{
+    @extend .flex_default;
+  }
+  .drop_container{
+    flex: 1;
+    margin: 0 1em;
+    &:first-child{
+      margin-left: 0;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
