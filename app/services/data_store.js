@@ -7,11 +7,11 @@ angular.module('app')
             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis, illum mollitia officia quasi quia',
             categories: [
                 {
-                    category_name: 'first_category',
+                    category_name: 'first category',
                     subcategory: ['sub_category_1', 'sub_category_2', 'add_1' ]
                 },
                 {
-                    category_name: 'seconde_category',
+                    category_name: 'seconde category',
                     subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_1']
                 }
             ],
@@ -23,11 +23,11 @@ angular.module('app')
             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis, illum mollitia officia quasi quia',
             categories: [
                 {
-                    category_name: 'first_category',
+                    category_name: 'first category',
                     subcategory: ['sub_category_1', 'sub_category_2', 'add_2' ]
                 },
                 {
-                    category_name: 'seconde_category',
+                    category_name: 'seconde category',
                     subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4']
                 }
             ],
@@ -43,7 +43,7 @@ angular.module('app')
                     subcategory: ['sub_category_1', 'sub_category_2', 'add_6' ]
                 },
                 {
-                    category_name: 'seconde_category',
+                    category_name: 'seconde category',
                     subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_5']
                 }
             ],

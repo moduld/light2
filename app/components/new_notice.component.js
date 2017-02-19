@@ -4,10 +4,19 @@ angular.module('app')
         controller: newNoticeCtrl
     });
 
-function newNoticeCtrl(dataStore)
+function newNoticeCtrl(dataStore, $location, $stateParams)
 {
     var self = this;
 
+    var id = $stateParams.id;
+    self.theTab = id !== undefined ? JSON.parse(JSON.stringify(dataStore.allTabs[id])) : {
+            title: '',
+            text: '',
+            categories:[],
+            labels: [],
+            background: 'default'
+            };
+console.log(self.theTab)
     self.addNewCategory = addNewCategory;
     self.addSubCategory =addSubCategory;
     self.deleteCategory = deleteCategory;
@@ -15,14 +24,15 @@ function newNoticeCtrl(dataStore)
     self.addLabel = addLabel;
     self.deleteLAbel = deleteLAbel;
     self.colorChange = colorChange;
+    self.addTabCategory = addTabCategory;
+    self.addTabSubcategory = addTabSubcategory;
+    self.addTabLabel = addTabLabel;
+    self.saveTab = saveTab;
+    self.isChecked = isChecked;
 
     self.allCategories = dataStore.allCategory;
     self.allLabels = dataStore.allLabels;
     self.allColors = dataStore.allColors;
-
-    self.theTab = {
-        background: 'default'
-    };
 
     function addNewCategory(data)
     {
@@ -72,5 +82,70 @@ function newNoticeCtrl(dataStore)
     function colorChange(color)
     {
         self.theTab.background = color;
+    }
+
+    function addTabCategory(category_name, flag)
+    {
+
+        if (flag){
+            for (var i = 0; i < self.theTab.categories.length; i++){
+                if (category_name === self.theTab.categories[i].category_name){
+                    return;
+                }
+            }
+            self.theTab.categories.push({category_name: category_name, subcategory: []});
+        } else {
+            self.theTab.categories = self.theTab.categories.filter(function (item)
+            {
+                return item.category_name !== category_name
+            })
+        }
+    }
+
+    function addTabSubcategory(cat, index, flag)
+    {
+        self.theTab.categories.forEach(function (item)
+        {
+            if(cat.category_name === item.category_name){
+                flag ? item.subcategory.push(cat.subcategory[index]) : item.subcategory = item.subcategory.filter(function (sub)
+                    {
+                        return sub !== cat.subcategory[index]
+                    })
+            }
+        })
+    }
+
+    function addTabLabel(label, flag)
+    {
+        flag ? self.theTab.labels.push(label) : self.theTab.labels.indexOf(label) >= 0 && self.theTab.labels.splice(self.theTab.labels.indexOf(label), 1);
+    }
+
+    function saveTab()
+    {
+        id ? dataStore.allTabs.splice(id, 1, self.theTab) : dataStore.allTabs.push(self.theTab);
+        $location.path('main')
+    }
+
+    function isChecked(name, label, catName)
+    {
+        if (name === 'label'){
+            return self.theTab.labels.indexOf(label) >= 0
+        }
+        if (name === 'category'){
+            for (var i = 0; i < self.theTab.categories.length; i++){
+                if (self.theTab.categories[i].category_name === label){
+                    return true
+                }
+            }
+        }
+        if (name === 'subcat'){
+            for (var j = 0; j < self.theTab.categories.length; j++){
+                if (self.theTab.categories[j].category_name === catName){
+                    return self.theTab.categories[j].subcategory.indexOf(label) >= 0
+
+                }
+            }
+
+        }
     }
 }

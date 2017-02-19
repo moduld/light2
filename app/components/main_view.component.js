@@ -12,43 +12,61 @@ function mainViewCtrl(dataStore)
     self.allCategories = dataStore.allCategory;
     self.allLabels = dataStore.allLabels;
     self.allColors = dataStore.allColors;
+    self.filtersData = {
+        background: [],
+        labels: [],
+        categories: {}
+    };
 
-    // var tempCategoryArray = [];
-    // var tempLabelsArray = [];
+    self.filterOutput = filterOutput;
+    self.fillFilterData = fillFilterData;
+    self.fillCategoriesData = fillCategoriesData;
 
-    // dataStore.allTabs.forEach(function (tab)
-    // {
-    //     if (tab.categories.length){
-    //         for(var i = tab.categories.length; i--; tempCategoryArray.push(tab.categories[i])){}
-    //     }
-    //
-    //     if (tab.labels.length){
-    //         for(var j = tab.labels.length; j--; tempLabelsArray.push(tab.labels[j])){}
-    //     }
-    // });
-    //
-    // while(tempLabelsArray.length){
-    //     var label = tempLabelsArray.pop();
-    //     tempLabelsArray.indexOf(label) < 0 && self.allLabels.push(label)
-    // }
-    //
-    // console.log(self.allLabels)
-    // while(tempCategoryArray.length){
-    //     var last = tempCategoryArray.pop();
-    //
-    //     tempCategoryArray = tempCategoryArray.filter(function (item, i)
-    //     {
-    //         if (last.category_name === tempCategoryArray[i].category_name){
-    //             for (var j = 0; j < tempCategoryArray[i].subcategory.length; j++){
-    //                 last.subcategory.indexOf(tempCategoryArray[i].subcategory[j]) < 0 && last.subcategory.push(tempCategoryArray[i].subcategory[j])
-    //             }
-    //             return false
-    //         }
-    //         return true
-    //     })
-    //
-    //     self.allCategories.push(last)
-    // }
-    // console.log(self.allCategories)
+    function fillFilterData(flag, filtering, data)
+    {
+            if (filtering.color || filtering.label){
+                self.filtersData[flag].push(data)
+            } else {
+                self.filtersData[flag].splice(self.filtersData[flag].indexOf(data), 1)
+            }
+
+
+    }
+
+    function fillCategoriesData(key, filtering)
+    {
+        filtering ? self.filtersData.categories[key] = [] : delete self.filtersData.categories[key]
+        console.log( self.filtersData)
+
+    }
+
+    function filterOutput(item)
+    {
+        if(findColors(item) && findLabels(item)){
+            console.log(item)
+            return true
+        } else { return false }
+
+    }
+
+    function findColors(item)
+    {
+       if(self.filtersData.background.length){
+           if (self.filtersData.background.indexOf(item.background) >= 0){return true}
+       } else {
+           return true
+       }
+    }
+
+    function findLabels(item)
+    {
+        if (self.filtersData.labels.length){
+            for (var i = 0; i < item.labels.length; i++){
+                if (self.filtersData.labels.indexOf(item.labels[i]) >= 0){return true}
+            }
+        } else {
+            return true
+        }
+    }
 
 }

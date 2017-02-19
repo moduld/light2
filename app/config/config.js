@@ -18,7 +18,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
     $stateProvider.state({
         name: 'details',
         url: '/details/{id}',
-        component: 'detailsComponent'
+        component: 'newNotice'
     })
 
 }]);
