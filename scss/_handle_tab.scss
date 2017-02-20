@@ -54,7 +54,11 @@ notice-handle{
     }
   }
 }
-
+.color_sample{
+  display: block;
+  height: 1em;
+  width: 1em;
+}
 .new_tab{
   flex: 1;
   @extend .flex_column;
@@ -86,6 +90,26 @@ notice-handle{
     }
     &:last-child{
       margin-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .new_tab{
+    .drop_container{
+      font-size: 0.8em;
+      margin: 0;
+    }
+    .string{
+      padding: 1.5em 0;
+    }
+  }
+}
+
+@media screen and (max-width: 640px){
+  .new_notice_window{
+    .drop_body{
+      font-size: 0.8em;
     }
   }
 }

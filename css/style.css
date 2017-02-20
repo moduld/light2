@@ -1,33 +1,69 @@
 @import url(../icons/style.css);
 .flex_center, .drop_container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center; }
 
 .flex_column, body, .full_height, main-view, notice-handle, .tab_body, .tab_body .category_wrapp,
 .tab_body .labels_wrapp, .new_tab {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column; }
 
 .flex_between, .main_wrapper, main-view .filter_wrapp {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
   justify-content: space-between; }
 
 .flex_around, .buttons {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
   justify-content: space-around; }
 
 .flex_default, main-view .tab_view, .tab_body .tags_wrapp, .new_notice_window .input_field_wrapp, .new_tab .settings {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
   flex-direction: row; }
 
 .flex_line, .tab_body .tag_name, .tab_body .sub_tag {
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
   justify-content: flex-start; }
 
 * {
@@ -50,11 +86,15 @@ body {
   margin: 0 auto; }
 
 .full_height, main-view, notice-handle {
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1; }
 
 .drop_container {
   position: relative;
   cursor: pointer;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
   justify-content: flex-start; }
   .drop_container:before {
     color: rgba(98, 138, 204, 0.85); }
@@ -125,39 +165,77 @@ body {
 
 .filter_name {
   font-size: 1.2em;
-  padding: 0.8em 1.5em 0.8em 0.5em;
+  padding: 0.8em 2.5em 0.8em 1em;
   display: inline-block;
   cursor: pointer;
   width: 100%; }
 
 .default {
   background: #efefef; }
+  .default .drop_body {
+    background: linear-gradient(to top, #efefef, white, #efefef); }
 
 .red {
   background: #ba0000; }
+  .red .drop_body {
+    background: linear-gradient(to top, #ba0000, white, #ba0000); }
 
 .blue {
   background: rgba(98, 138, 204, 0.85); }
+  .blue .drop_body {
+    background: linear-gradient(to top, rgba(98, 138, 204, 0.85), white, rgba(98, 138, 204, 0.85)); }
 
 .green {
   background: #468003; }
 
 .yellow {
   background: #a7a01e; }
+  .yellow .drop_body {
+    background: linear-gradient(to top, #a7a01e, white, #a7a01e); }
 
 .violet {
   background: #bb4cff; }
+  .violet .drop_body {
+    background: linear-gradient(to top, #bb4cff, white, #bb4cff); }
 
 .brown {
   background: #671d1e; }
+  .brown .drop_body {
+    background: linear-gradient(to top, #671d1e, white, #671d1e); }
 
 .buttons {
   margin-top: auto; }
   .buttons .button {
     padding: 0.8em 1.5em; }
 
+@media screen and (max-width: 1100px) {
+  .nav_bar .new_notice {
+    margin: 0 auto; }
+  .nav_bar .filter_wrapp {
+    width: 100%;
+    margin-top: 1em; }
+  .nav_bar .title {
+    display: none; }
+  .nav_bar .drop_container {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin: 0; } }
+
+@media screen and (max-width: 768px) {
+  .nav_bar .filter_name {
+    font-size: 0.8em;
+    padding: 1em; }
+  .nav_bar .string {
+    font-size: 0.6em;
+    padding: 1.5em 0; } }
+
 main-view .main_wrapper {
+  -webkit-flex: 0;
+  -ms-flex: 0;
   flex: 0;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
 main-view .new_notice {
@@ -170,6 +248,8 @@ main-view .hover_button {
   background: white;
   position: relative;
   overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   cursor: pointer; }
   main-view .hover_button:after {
@@ -203,6 +283,8 @@ main-view .check_string {
   position: relative; }
 
 main-view .tab_view {
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
   justify-content: space-around; }
 
 .tab_body {
@@ -210,7 +292,8 @@ main-view .tab_view {
   height: 30em;
   padding: 0.5em;
   border: 1px solid #efefef;
-  margin: 1em; }
+  margin: 1em;
+  cursor: pointer; }
   .tab_body .text,
   .tab_body .title {
     padding: 0.5em 0.8em;
@@ -225,6 +308,8 @@ main-view .tab_view {
     margin-top: 0.5em; }
   .tab_body .tags_wrapp {
     margin-top: 1em;
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1; }
   .tab_body .category_wrapp,
   .tab_body .labels_wrapp {
@@ -259,6 +344,8 @@ main-view .tab_view {
 
 .new_notice_window .input_field {
   padding: 0.8em 1em;
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1; }
 
 .new_notice_window .button_add {
@@ -298,7 +385,14 @@ main-view .tab_view {
   .new_notice_window .subcategories .check_string {
     border: none; }
 
+.color_sample {
+  display: block;
+  height: 1em;
+  width: 1em; }
+
 .new_tab {
+  -webkit-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   width: 100%;
   max-width: 62.5em;
@@ -316,9 +410,22 @@ main-view .tab_view {
     height: 20em;
     overflow-y: auto; }
   .new_tab .drop_container {
+    -webkit-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     margin: 0 1em; }
     .new_tab .drop_container:first-child {
       margin-left: 0; }
     .new_tab .drop_container:last-child {
       margin-right: 0; }
+
+@media screen and (max-width: 768px) {
+  .new_tab .drop_container {
+    font-size: 0.8em;
+    margin: 0; }
+  .new_tab .string {
+    padding: 1.5em 0; } }
+
+@media screen and (max-width: 640px) {
+  .new_notice_window .drop_body {
+    font-size: 0.8em; } }

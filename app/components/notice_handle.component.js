@@ -1,7 +1,7 @@
 angular.module('app')
     .component('noticeHandle', {
         templateUrl: "app/components/notice_handle.component.html",
-        controller: noticeHandle
+        controller: ['dataStore', '$location', '$stateParams',  noticeHandle]
     });
 
 function noticeHandle(dataStore, $location, $stateParams)

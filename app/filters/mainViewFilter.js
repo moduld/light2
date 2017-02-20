@@ -1,5 +1,5 @@
 angular.module('app')
-    .filter('mainView', function (dataStore)
+    .filter('mainView',['dataStore', function (dataStore)
     {
         return function (itemArray)
         {
@@ -49,4 +49,4 @@ angular.module('app')
             }
             return output;
         }
-    });
+    }]);

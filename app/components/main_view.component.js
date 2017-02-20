@@ -1,10 +1,10 @@
 angular.module('app')
     .component('mainView', {
         templateUrl: "app/components/main_view.component.html",
-        controller: mainViewCtrl
+        controller: ['dataStore', '$scope', mainViewCtrl]
     });
 
-function mainViewCtrl(dataStore)
+function mainViewCtrl(dataStore, $scope)
 {
     var self = this;
 
@@ -17,6 +17,14 @@ function mainViewCtrl(dataStore)
     self.fillCategoriesData = fillCategoriesData;
     self.isChecked = isChecked;
 
+    $scope.$on('$destroy', function ()
+    {
+        dataStore.filterSettings = {
+            background: [],
+            labels: [],
+            categories: {}
+        }
+    });
 
     function fillFilterData(flag, filtering, data)
     {

@@ -97,10 +97,11 @@
                 <input type="checkbox" id="by_color" class="toggle_input">
                 <label for="by_color" class="filter_name">Выбор цвета</label>
                 <div class="drop_body">
-                    <div class="check_string" ng-repeat="color in $ctrl.allColors track by $index">
+                    <div class="check_string flex_between" ng-repeat="color in $ctrl.allColors track by $index">
                         <input type="radio" name="new_ticket_color" id="color_{{$index}}" class="string_toggle"
                                  ng-model="$ctrl.theTab.background"  ng-value="color">
                         <label for="color_{{$index}}" class="string">{{color}}</label>
+                        <span class="color_sample" ng-class="color"></span>
                     </div>
                 </div>
             </div>

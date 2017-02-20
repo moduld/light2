@@ -142,7 +142,7 @@ body{
 
 .filter_name{
   font-size: 1.2em;
-  padding: 0.8em 1.5em 0.8em 0.5em;
+  padding: 0.8em 2.5em 0.8em 1em;
   display: inline-block;
   cursor: pointer;
   width: 100%;
@@ -150,29 +150,80 @@ body{
 
 .default{
   background: $default;
+   .drop_body{
+    background: linear-gradient(to top, $default, white, $default);
+  }
 }
 .red{
   background: $red;
+  .drop_body{
+    background: linear-gradient(to top, $red, white, $red);
+  }
 }
 .blue{
   background: $blue;
+  .drop_body{
+    background: linear-gradient(to top, $blue, white, $blue);
+  }
 }
 .green{
   background: $green;
 }
 .yellow{
   background: $yellow;
+  .drop_body{
+    background: linear-gradient(to top, $yellow, white, $yellow);
+  }
 }
 .violet{
   background: $violet;
+  .drop_body{
+    background: linear-gradient(to top, $violet, white, $violet);
+  }
+
 }
 .brown{
   background: $brown;
+  .drop_body{
+    background: linear-gradient(to top, $brown, white, $brown);
+  }
 }
 .buttons{
   @extend .flex_around;
   margin-top: auto;
   .button{
     padding: 0.8em 1.5em;
+  }
+}
+
+@media screen and (max-width: 1100px){
+  .nav_bar{
+    .new_notice{
+      margin: 0 auto;
+    }
+    .filter_wrapp{
+      width: 100%;
+      margin-top: 1em;
+    }
+    .title{
+      display: none;
+    }
+    .drop_container{
+      flex: 1;
+      margin: 0 ;
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .nav_bar{
+    .filter_name{
+      font-size: 0.8em;
+      padding: 1em;
+    }
+    .string{
+      font-size: 0.6em;
+      padding: 1.5em 0;
+    }
   }
 }

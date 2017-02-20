@@ -5,53 +5,55 @@ angular.module('app')
     this.tabs = localStorage.getItem('allTabs') ? JSON.parse(localStorage.getItem('allTabs')) : [
         {
             id: 1,
-            title: 'tab 1 title',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis, illum mollitia officia quasi quia',
+            title: 'Заметка 1. ',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita' +
+            ' impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, ' +
+            'dolorum earum ex facilis, illum mollitia officia quasi quia',
             categories: [
                 {
-                    category_name: 'first category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'add_1' ]
+                    category_name: 'Категория первая',
+                    subcategory: ['Подкатегория один', 'Подкатегория два', 'Подкатегория три' ]
                 },
                 {
-                    category_name: 'seconde category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_1']
+                    category_name: 'Категория вторая',
+                    subcategory: ['Подкатегория один', 'Подкатегория два', 'Подкатегория три', 'Подкатегория четыре', 'Подкатегория пять']
                 }
             ],
-            labels: ['first label'],
+            labels: ['Ярлык первый'],
             background: 'default'
         },
         {
             id: 2,
-            title: 'tab 2 title',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis, illum mollitia officia quasi quia',
+            title: 'Заметка 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita' +
+            ' impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, ' +
+            'dolorum earum ex facilis, illum mollitia officia quasi quia ',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit ' +
+            'tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis,' +
+            ' illum mollitia officia quasi quia',
             categories: [
                 {
-                    category_name: 'first category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'add_2' ]
+                    category_name: 'Категория первая',
+                    subcategory: ['Подкатегория четыре', 'Подкатегория пять']
                 },
                 {
-                    category_name: 'seconde category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4']
+                    category_name: 'Категория триетья',
+                    subcategory: ['Подкатегория три']
                 }
             ],
-            labels: ['first label', 'seconde label', 'third label'],
+            labels: ['Ярлык первый', 'Ярлык третий', 'Ярлык пятый'],
             background: 'red'
         },
         {
             id: 3,
-            title: 'tab 3 title',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit tempora voluptas? Animi atque blanditiis cupiditate  dicta doloribus, dolorum earum ex facilis, illum mollitia officia quasi quia',
+            title: 'Заметка 3. ',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque expedita impedit ',
             categories: [
                 {
-                    category_name: 'third category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'add_6' ]
-                },
-                {
-                    category_name: 'seconde category',
-                    subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_5']
+                    category_name: 'Категория вторая',
+                    subcategory: ['Подкатегория один', 'Подкатегория пять']
                 }
             ],
-            labels: ['first label', 'seconde label'],
+            labels: [],
             background: 'brown'
         }
     ];
@@ -60,20 +62,24 @@ angular.module('app')
 
     this.categories = localStorage.getItem('allCategories') ? JSON.parse(localStorage.getItem('allCategories')) : [
         {
-            category_name: 'first category',
-            subcategory: ['sub_category_1', 'sub_category_2', 'add_6', 'add_2',  'add_1']
+            category_name: 'Категория первая',
+            subcategory: ['Подкатегория один', 'Подкатегория два', 'Подкатегория три', 'Подкатегория четыре', 'Подкатегория пять']
         },
         {
-            category_name: 'seconde category',
-            subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4',  'add_5', 'add_1']
+            category_name: 'Категория вторая',
+            subcategory: ['Подкатегория один', 'Подкатегория два', 'Подкатегория три', 'Подкатегория четыре', 'Подкатегория пять']
         },
         {
-            category_name: 'third category',
-            subcategory: ['sub_category_1', 'sub_category_2', 'sub_category_3', 'sub_category_4', 'add_6']
+            category_name: 'Категория триетья',
+            subcategory: ['Подкатегория один', 'Подкатегория два', 'Подкатегория три', 'Подкатегория четыре', 'Подкатегория пять']
+        },
+        {
+            category_name: 'Категория четвертая',
+            subcategory: ['Подкатегория один', 'Подкатегория два']
         }
     ];
 
-    this.labels = localStorage.getItem('allLabels') ? JSON.parse(localStorage.getItem('allLabels')) : ['first label', 'seconde label', 'third label'];
+    this.labels = localStorage.getItem('allLabels') ? JSON.parse(localStorage.getItem('allLabels')) : ['Ярлык первый', 'Ярлык второй', 'Ярлык третий', 'Ярлык четвертый', 'Ярлык пятый'];
 
     this.filtersObject = {
         background: [],
