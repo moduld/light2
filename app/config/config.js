@@ -12,13 +12,13 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
     $stateProvider.state({
         name: 'new-notice',
         url: '/new-notice',
-        component: 'newNotice'
+        component: 'noticeHandle'
     });
 
     $stateProvider.state({
         name: 'details',
         url: '/details/{id}',
-        component: 'newNotice'
+        component: 'noticeHandle'
     })
 
 }]);

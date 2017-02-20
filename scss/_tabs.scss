@@ -1,26 +1,30 @@
 
 .tab_body{
-  width: 100%;
-  max-width: 29em;
+  @extend .flex_column;
+  width: 28em;
+  height: 30em;
   padding: 0.5em;
   border: 1px solid $default;
   margin: 1em;
+  .text,
   .title{
-    padding: 0.8em;
-    text-align: center;
+    padding: 0.5em 0.8em;
     background: white;
     border-radius: 0.2em;
     width: 100%;
+    max-height: 6em;
+    overflow-y: auto;
+  }
+  .title{
+    text-align: center;
   }
   .text{
     margin-top: 0.5em;
-    background: white;
-    border-radius: 0.2em;
-    padding: 0.5em;
   }
   .tags_wrapp{
     @extend .flex_default;
     margin-top: 1em;
+    flex: 1;
   }
   .category_wrapp,
   .labels_wrapp{
@@ -29,6 +33,7 @@
     background: white;
     padding: 0.5em;
     border-radius: 0.2em;
+    overflow-y: auto;
   }
   .category_wrapp{
     margin-right: 0.5em;

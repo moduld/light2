@@ -11,14 +11,16 @@
                 <label for="by_categiry" class="filter_name">По категориям</label>
                 <div class="drop_body">
 
-                    <div class="check_string" ng-repeat="category in $ctrl.allCategories track by $index" >
+                    <div class="check_string" ng-repeat="category in $ctrl.allCategories track by $index">
                         <input type="checkbox" id="category_{{$index}}" class="string_toggle" ng-model="filtering.categories"
                                ng-change="$ctrl.fillCategoriesData(category.category_name, filtering.categories)">
                         <label for="category_{{$index}}" class="string">{{category.category_name}}</label>
                         <div class="subcategories">
                             <div class="check_string" ng-repeat="subcategory in category.subcategory track by $index">
                                 <input type="checkbox" id="{{category.category_name}}_subcategory_{{$index}}"
-                                       class="string_toggle" ng-model="filtering.subcategories">
+                                       class="string_toggle" ng-model="subcat.state"
+                                       ng-change="$ctrl.fillCategoriesData(category.category_name, subcat.state, subcategory)"
+                                       ng-checked="$ctrl.isChecked(category.category_name, subcategory, subcat)">
                                 <label for="{{category.category_name}}_subcategory_{{$index}}" class="string">{{subcategory}}</label>
                             </div>
                         </div>
@@ -41,10 +43,11 @@
                     <input type="checkbox" id="by_color" class="toggle_input">
                     <label for="by_color" class="filter_name">По цвету</label>
                     <div class="drop_body">
-                        <div class="check_string" ng-repeat="color in $ctrl.allColors track by $index">
+                        <div class="check_string flex_between" ng-repeat="color in $ctrl.allColors track by $index">
                             <input type="checkbox" id="color_{{$index}}" class="string_toggle" ng-model="filtering.color"
                                    ng-change="$ctrl.fillFilterData('background', filtering, color)">
                             <label for="color_{{$index}}" class="string">{{color}}</label>
+                            <span class="color_sample" ng-class="color"></span>
                         </div>
                     </div>
                 </div>
@@ -52,9 +55,9 @@
         </div>
 </nav>
 
-<div class="main_wrapper full_height flex_default main_view">
-    <div class="tab_body" ng-repeat="tab in $ctrl.tabs | filter: $ctrl.filterOutput track by $index " ng-class="tab.background"
-         ui-sref="details({id: $index})">
+<div class="main_wrapper tab_view">
+    <div class="tab_body" ng-repeat="tab in $ctrl.tabs | mainView track by $index " ng-class="tab.background"
+         ui-sref="details({id: tab.id})">
         <h2 class="title" ng-bind="tab.title"></h2>
         <p class="text" ng-bind="tab.text"></p>
         <div class="tags_wrapp">

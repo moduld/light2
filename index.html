@@ -11,11 +11,13 @@
     <script src="app/app.js" defer></script>
     <script src="app/config/config.js" defer></script>
     <script src="app/components/main_view.component.js" defer></script>
-    <script src="app/components/new_notice.component.js" defer></script>
+    <script src="app/components/notice_handle.component.js" defer></script>
     <script src="app/services/data_store.js" defer></script>
+    <script src="app/filters/mainViewFilter.js" defer></script>
+    <script src="app/directives/closeDropBox.js" defer></script>
     <title>Tabs</title>
 </head>
-<body ng-app="app">
+<body ng-app="app" close-drops>
     <ui-view class="full_height"></ui-view>
 </body>
 </html>
