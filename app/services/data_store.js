@@ -87,7 +87,6 @@ angular.module('app')
         categories: {}
     };
 
-
     return {
         allTabs: this.tabs,
         allColors: this.colors,
