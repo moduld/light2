@@ -1,7 +1,5 @@
 notice-handle{
   @extend .full_height;
-}
-.new_notice_window{
   .input_field_wrapp{
     @extend .flex_default;
     padding-bottom: 0.5em;
@@ -53,7 +51,6 @@ notice-handle{
       border: none;
     }
   }
-}
 .color_sample{
   display: block;
   height: 1em;
@@ -66,6 +63,7 @@ notice-handle{
   max-width: 62.5em;
   margin: 2em auto 0;
   padding: 2em;
+}
   .new_title{
     width: 100%;
     padding: 0.8em 1em;
@@ -92,24 +90,31 @@ notice-handle{
       margin-right: 0;
     }
   }
-}
 
-@media screen and (max-width: 768px){
-  .new_tab{
-    .drop_container{
-      font-size: 0.8em;
-      margin: 0;
-    }
-    .string{
-      padding: 1.5em 0;
+}
+@media screen and (max-width: 850px){
+  notice-handle{
+    .new_tab{
+      .drop_container{
+        font-size: 0.8em;
+        margin: 0;
+      }
+      .filter_name{
+        padding: 0.8em;
+      }
+      .string{
+        padding: 1.5em 0;
+      }
     }
   }
 }
 
 @media screen and (max-width: 640px){
-  .new_notice_window{
-    .drop_body{
-      font-size: 0.8em;
+  notice-handle{
+    .nav_bar{
+      .drop_body{
+        font-size: 0.8em;
+      }
     }
   }
 }

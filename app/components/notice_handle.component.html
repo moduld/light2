@@ -1,4 +1,4 @@
-<nav class="nav_bar new_notice_window" >
+<nav class="nav_bar" >
     <div class="main_wrapper">
 
 
@@ -108,9 +108,17 @@
         </div>
 
         <div class="buttons">
-            <button class="button" ui-sref="main">Отмена</button>
-            <button class="button" ng-click="$ctrl.saveTab()" >{{$ctrl.buttonText}}</button>
-            <button class="button" ng-click="$ctrl.deleteTab()" ng-if="$ctrl.usedTab">Удалить</button>
+            <button class="button hover_button" ui-sref="main">
+               <span class="text">Отмена</span>
+            </button>
+            <button class="button hover_button" ng-click="$ctrl.saveTab()" >
+                <span class="text">{{$ctrl.buttonText}}</span>
+
+            </button>
+            <button class="button hover_button" ng-click="$ctrl.deleteTab()" ng-if="$ctrl.usedTab">
+                <span class="text">Удалить</span>
+
+            </button>
         </div>
     </div>
 </div>
